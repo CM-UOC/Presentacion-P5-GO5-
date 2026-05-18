@@ -16,30 +16,36 @@
            1. VISION OS DESIGN TOKENS (Light/Pearl Mode)
            ========================================================================== */
         :root {
+            /* Luminous Orbs */
             --v-cyan: #00f2fe;
             --v-blue: #007aff;
             --v-magenta: #f3007f;
             --v-violet: #8a2be2;
             --v-orange: #ff5e00;
             
+            /* Glassmorphism settings (Mother Canvas) */
             --glass-bg: rgba(255, 255, 255, 0.65);
             --glass-blur: blur(50px) saturate(180%);
             --glass-border: rgba(255, 255, 255, 0.9);
             --glass-shadow: 0 40px 100px rgba(15, 23, 42, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.7);
             
+            /* Internal Cards */
             --card-bg: rgba(255, 255, 255, 0.5);
             --card-border: rgba(255, 255, 255, 0.7);
             --card-hover-bg: rgba(255, 255, 255, 0.95);
             
+            /* Typography */
             --text-heading: #0f172a;
             --text-body: #334155;
             --text-muted: #64748b;
             
+            /* Semantic Colors */
             --sem-green: #10b981;
             --sem-red: #ef4444;
             --sem-blue: #2563eb;
             --sem-orange: #f59e0b;
 
+            /* Easings */
             --ease-apple: cubic-bezier(0.25, 0.1, 0.25, 1);
         }
 
@@ -131,7 +137,7 @@
         h1, h2, h3, h4 { font-family: var(--font-display); color: var(--text-heading); letter-spacing: -0.03em; }
 
         .slide-title {
-            font-size: 2.2rem; margin-bottom: 25px; display: flex; align-items: center; gap: 15px;
+            font-size: 2.2rem; margin-bottom: 30px; display: flex; align-items: center; gap: 15px;
             border-bottom: 1.5px solid rgba(0,0,0,0.04); padding-bottom: 15px;
         }
         .slide-title i { color: var(--v-blue); font-size: 1.8rem; filter: drop-shadow(0 4px 8px rgba(0,122,255,0.2)); }
@@ -140,7 +146,7 @@
         strong { font-weight: 700; color: var(--text-heading); }
 
         .hero-title {
-            font-size: 4rem; line-height: 1.05; letter-spacing: -0.04em; margin-bottom: 20px;
+            font-size: 4rem; line-height: 1.05; letter-spacing: -0.04em; margin-bottom: 25px;
             background: linear-gradient(135deg, #0f172a 0%, #3b82f6 100%);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
@@ -150,38 +156,13 @@
            ========================================================================== */
         @keyframes siriGradient { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
         
-        .siri-wrapper {
-            position: relative; padding: 4px; border-radius: 28px;
-            background: linear-gradient(120deg, #00f2fe, #f3007f, #7000ff, #ff5e00, #00f2fe);
-            background-size: 300% 300%; animation: siriGradient 4s linear infinite;
-            box-shadow: 0 10px 40px rgba(112, 0, 255, 0.2);
-            transition: all 0.5s var(--ease-apple);
-        }
-        .siri-wrapper-inner {
-            background: rgba(255, 255, 255, 0.95); border-radius: 25px;
-            width: 100%; height: 100%; display: flex; flex-direction: column;
-        }
         .text-siri {
-            background: linear-gradient(120deg, #00f2fe, #f3007f, #7000ff, #00f2fe);
+            background: linear-gradient(120deg, #00f2fe, #f3007f, #7000ff, #ff5e00, #00f2fe);
             background-size: 300% 300%; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             animation: siriGradient 4s linear infinite; font-weight: 800;
         }
-        
-        .text-siri-blue { background: linear-gradient(120deg, #00f2fe, #007aff, #00f2fe); background-size: 200% 200%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: siriGradient 3s linear infinite; font-weight: 800; }
-        .text-siri-orange { background: linear-gradient(120deg, #ff5e00, #f59e0b, #ff5e00); background-size: 200% 200%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: siriGradient 3s linear infinite; font-weight: 800; }
 
-        .siri-hover-only { border: 1.5px solid var(--card-border); background: var(--card-bg); border-radius: 28px; padding: 25px; position: relative; transition: all 0.5s var(--ease-apple); }
-        .siri-hover-only::before {
-            content: ""; position: absolute; inset: 0; border-radius: 28px; padding: 3px;
-            background: linear-gradient(135deg, #00f2fe, #f3007f, #7000ff, #ff5e00, #00f2fe);
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor; mask-composite: exclude;
-            background-size: 300% 300%; opacity: 0; transition: opacity 0.5s; pointer-events: none;
-        }
-        .siri-hover-only:hover { transform: translateY(-5px) scale(1.02); background: rgba(255,255,255,0.95); box-shadow: 0 20px 50px rgba(112, 0, 255, 0.15); border-color: transparent; }
-        .siri-hover-only:hover::before { opacity: 1; animation: siriGradient 4s linear infinite; }
-
-        /* Tarjetas Cristalizadas Normales */
+        /* Tarjetas de cristal líquido */
         .glass-card {
             background: var(--card-bg); border: 1.5px solid var(--card-border);
             border-radius: 24px; padding: 25px; height: 100%;
@@ -194,52 +175,85 @@
         }
         .glass-card h3 { font-size: 1.3rem; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
 
+        /* Specific Hover Glows */
         .glow-blue:hover { box-shadow: 0 20px 50px rgba(0, 122, 255, 0.2); border-color: var(--v-blue); }
         .glow-green:hover { box-shadow: 0 20px 50px rgba(16, 185, 129, 0.2); border-color: var(--sem-green); }
         .glow-red:hover { box-shadow: 0 20px 50px rgba(239, 68, 68, 0.2); border-color: var(--sem-red); }
         .glow-orange:hover { box-shadow: 0 20px 50px rgba(245, 158, 11, 0.2); border-color: var(--sem-orange); }
 
-        /* Modern Data Panels - Sutil Hover Glow */
+        /* Glass Card WITH Siri Hover */
+        .glass-siri { position: relative; }
+        .glass-siri::after {
+            content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 2.5px;
+            background: linear-gradient(135deg, #00f2fe, #f3007f, #7000ff, #ff5e00, #00f2fe);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor; mask-composite: exclude;
+            background-size: 300% 300%; opacity: 0; transition: opacity 0.5s; pointer-events: none;
+        }
+        .glass-siri:hover::after { opacity: 1; animation: siriGradient 4s linear infinite; }
+        .glass-siri:hover { border-color: transparent !important; } /* Ocultar borde base cuando el siri glow está activo */
+
+        /* BORDER GLOW ALWAYS ON */
+        .siri-border-active {
+            position: relative; border-radius: 20px; background: rgba(255,255,255,0.7);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); padding: 20px; border: 1.5px solid transparent;
+        }
+        .siri-border-active::before {
+            content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 3px;
+            background: linear-gradient(135deg, #00f2fe, #f3007f, #7000ff, #ff5e00, #00f2fe);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor; mask-composite: exclude;
+            background-size: 300% 300%; animation: siriGradient 4s linear infinite; pointer-events: none;
+        }
+
+        /* Modern Data Panels */
+        .data-panel-wrapper { position: relative; border-radius: 22px; padding: 2px; }
+        .data-panel-wrapper::before {
+            content: ""; position: absolute; inset: 0; border-radius: 22px; padding: 2px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.8), rgba(255,255,255,0.2), rgba(0,242,254,0.3));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; opacity: 0.5;
+        }
         .data-panel {
             width: 100%; border-radius: 20px; overflow: hidden;
-            background: rgba(255, 255, 255, 0.4); border: 1px solid rgba(255,255,255,0.8);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            background: rgba(255, 255, 255, 0.4); border: 1px solid transparent;
         }
         
         .data-row {
-            display: grid; grid-template-columns: 1.5fr 2.5fr 1fr; padding: 18px 25px;
+            display: grid; grid-template-columns: 1.2fr 2fr 1fr; padding: 18px 25px;
             border-bottom: 1px solid rgba(0,0,0,0.03); align-items: center;
             transition: all 0.3s ease; position: relative;
         }
         .data-row.four-cols { grid-template-columns: 1.2fr 1.5fr 1.5fr 0.8fr; }
         .data-row:last-child { border-bottom: none; }
-        
-        /* Efecto Sutil de Hover para Tablas (Sin saltos de fondo) */
-        .data-row:not(.data-header):hover {
-            background: transparent; transform: scale(1.005);
-            box-shadow: inset 0 0 20px rgba(0,122,255,0.05); border-radius: 12px; z-index: 2; border: 1px solid transparent;
-        }
-        
-        /* Hover por Fila Específica (Subtle) */
-        .row-hover-blue:hover { border-color: rgba(37, 99, 235, 0.3) !important; box-shadow: inset 0 0 25px rgba(37, 99, 235, 0.08), 0 0 15px rgba(37, 99, 235, 0.15) !important; }
-        .row-hover-red:hover { border-color: rgba(239, 68, 68, 0.3) !important; box-shadow: inset 0 0 25px rgba(239, 68, 68, 0.08), 0 0 15px rgba(239, 68, 68, 0.15) !important; }
-        .row-hover-orange:hover { border-color: rgba(245, 158, 11, 0.3) !important; box-shadow: inset 0 0 25px rgba(245, 158, 11, 0.08), 0 0 15px rgba(245, 158, 11, 0.15) !important; }
+        .data-row:not(.data-header):hover { background: rgba(255,255,255,0.95); transform: scale(1.01); box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-radius: 12px; z-index: 2; border: 1px solid transparent; }
+
+        .row-hover-blue:hover { border-color: var(--v-blue); box-shadow: 0 10px 30px rgba(0,122,255,0.15) !important; }
+        .row-hover-red:hover { border-color: var(--sem-red); box-shadow: 0 10px 30px rgba(239,68,68,0.15) !important; }
+        .row-hover-orange:hover { border-color: var(--sem-orange); box-shadow: 0 10px 30px rgba(245,158,11,0.15) !important; }
+        .row-hover-green:hover { border-color: var(--sem-green); box-shadow: 0 10px 30px rgba(16,185,129,0.15) !important; }
 
         .data-header {
             background: rgba(0,0,0,0.02); font-weight: 700; text-transform: uppercase;
             font-size: 0.75rem; letter-spacing: 0.08em; color: var(--text-muted);
             padding: 12px 25px; border-bottom: 1px solid rgba(0,0,0,0.05);
         }
+        .data-row:hover.data-header { background: rgba(0,0,0,0.02); transform: none; box-shadow: none; border-radius: 0; border: none; }
 
         .row-title { font-family: var(--font-display); font-weight: 600; font-size: 1rem; color: var(--text-heading); }
         .row-desc { font-size: 0.95rem; color: var(--text-body); line-height: 1.4; }
 
         /* Badges */
-        .badge { display: inline-flex; align-items: center; padding: 6px 12px; border-radius: 8px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+        .badge {
+            display: inline-flex; align-items: center; padding: 6px 12px; border-radius: 8px;
+            font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;
+        }
         .badge-green { background: rgba(16, 185, 129, 0.15); color: #047857; }
         .badge-red { background: rgba(239, 68, 68, 0.15); color: #b91c1c; }
         .badge-blue { background: rgba(37, 99, 235, 0.15); color: #1d4ed8; }
         .badge-yellow { background: rgba(245, 158, 11, 0.15); color: #b45309; }
+        
+        .pill-badge { border-radius: 100px; padding: 8px 18px; font-size: 0.85rem; }
 
         /* Grids & Flex */
         .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: stretch; height: 100%; }
@@ -249,50 +263,41 @@
 
         ul.clean-list { list-style: none; }
         ul.clean-list li { position: relative; padding-left: 20px; margin-bottom: 12px; font-size: 1rem; }
-        ul.clean-list li::before { content: "◆"; position: absolute; left: 0; top: 1px; color: var(--v-blue); font-size: 0.7rem; filter: drop-shadow(0 0 5px var(--v-blue)); }
+        ul.clean-list li::before { content: "✦"; position: absolute; left: 0; top: 1px; color: var(--v-blue); font-size: 0.9rem; }
 
         /* ==========================================================================
-           6. ANIMACIONES SVG & COMPONENTES INNOVADORES
+           7. SVG ASSETS & ADVANCED GRAPHICS
            ========================================================================== */
         .svg-container { width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; position: relative; }
         
         .float-card { animation: floatBox 6s infinite alternate ease-in-out; }
         @keyframes floatBox { 0% { transform: translateY(-5px); } 100% { transform: translateY(5px); } }
         
-        .slow-dash { stroke-dasharray: 8, 12; animation: slowFlow 15s linear infinite; }
+        .slow-dash { stroke-dasharray: 8, 12; animation: slowFlow 25s linear infinite; }
         @keyframes slowFlow { to { stroke-dashoffset: -1000; } }
 
         /* Q&A Cards (Slide 15) */
-        .qa-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; width: 100%; }
+        .qa-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; width: 100%; align-content: center; }
         .qa-item { 
             background: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.9); border-radius: 20px; 
-            padding: 25px; transition: 0.6s var(--ease-apple); position: relative; overflow: hidden; height: 130px;
+            padding: 25px; transition: 0.6s var(--ease-apple); position: relative; overflow: hidden; height: 110px;
             display: flex; flex-direction: column; justify-content: flex-start;
         }
         .qa-item .answer { max-height: 0; opacity: 0; overflow: hidden; transition: 0.6s var(--ease-apple); margin-top: 0; font-size: 0.9rem; color: var(--text-body); }
-        .qa-icon { position: absolute; top: 20px; right: 20px; opacity: 0.4; font-size: 18px; animation: bounceIcon 2s infinite alternate ease-in-out; color: var(--v-blue); }
-        @keyframes bounceIcon { 0% { transform: translateY(-3px); } 100% { transform: translateY(3px); } }
+        .qa-icon { position: absolute; top: 20px; right: 20px; font-size: 18px; transition: 0.3s; color: var(--text-muted); animation: floatBox 2s infinite alternate; }
         
         .qa-item:hover { 
-            height: 250px; background: rgba(255,255,255,0.95); 
+            height: 200px; background: rgba(255,255,255,0.95); 
             box-shadow: 0 20px 50px rgba(0, 242, 254, 0.25); border-color: var(--v-cyan); transform: translateY(-5px);
         }
-        .qa-item:hover .answer { max-height: 180px; opacity: 1; margin-top: 25px; } /* Despliegue más abajo */
-        .qa-item:hover .qa-icon { opacity: 1; color: var(--v-cyan); }
+        .qa-item:hover .answer { max-height: 150px; opacity: 1; margin-top: 35px; } 
+        .qa-item:hover .qa-icon { color: var(--v-cyan); }
 
-        /* Slide 16 Innovative Grid */
-        .innovative-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 20px; height: 100%; }
-        .inno-card { border-radius: 24px; padding: 25px; background: rgba(255,255,255,0.5); border: 1px solid rgba(255,255,255,0.8); display: flex; flex-direction: column; justify-content: center; transition: 0.5s; position: relative; overflow: hidden; }
-        .inno-card.main { grid-row: span 2; background: rgba(16,185,129,0.1); border-color: var(--sem-green); justify-content: center; align-items: center; text-align: center; }
-        .inno-card.main::before { content: ""; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(16,185,129,0.2) 0%, transparent 70%); animation: pulseGlow 4s infinite alternate; pointer-events: none; }
-        .inno-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.05); background: rgba(255,255,255,0.9); }
-        @keyframes pulseGlow { 0% { transform: scale(0.9); opacity: 0.5; } 100% { transform: scale(1.1); opacity: 1; } }
-
-        /* Floating aesthetic pills (Slide 20) */
-        .glass-pill {
-            background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); padding: 15px 30px; border-radius: 100px;
-            font-family: var(--font-display); font-weight: 600; font-size: 1.15rem; color: var(--text-heading);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05); backdrop-filter: blur(15px); transition: 0.3s;
+        /* Tilt Cards (Slide 16) */
+        .tilt-card {
+            border-radius: 24px; padding: 30px; background: rgba(255,255,255,0.5); border: 1px solid rgba(255,255,255,0.8);
+            display: flex; flex-direction: column; justify-content: flex-start; transition: transform 0.1s ease-out, box-shadow 0.1s ease-out;
+            transform-style: preserve-3d; cursor: default;
         }
 
         /* Timeline Origin (Slide 8) */
@@ -302,6 +307,13 @@
         .tl-dot { width: 40px; height: 40px; background: #fff; border: 4px solid var(--text-muted); border-radius: 50%; margin: 0 auto 15px auto; display: flex; justify-content: center; align-items: center; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
         .tl-dot.green { border-color: var(--sem-green); }
         .tl-dot.blue { border-color: var(--sem-blue); }
+
+        /* Slide 20 Pills */
+        .glass-pill-transparent {
+            background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); padding: 12px 25px; border-radius: 100px;
+            font-family: var(--font-display); font-weight: 500; font-size: 1.05rem; color: var(--text-heading);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02); backdrop-filter: blur(10px); display: flex; align-items: center; gap: 15px;
+        }
 
         /* ==========================================================================
            8. NAVIGATION DOCK
@@ -340,21 +352,18 @@
 
         <!-- SLIDE 1: PORTADA CINEMATOGRÁFICA -->
         <div class="slide active" id="s1">
-            <div class="flex-center" style="position: relative;">
-                <div style="position: absolute; top: -40px; display: flex; gap: 12px; margin-bottom: 25px;">
-                    <span class="badge badge-blue" style="font-size: 0.85rem; padding: 8px 16px;"><i class="fa-solid fa-car" style="margin-right:8px;"></i> EXPORTACIÓN DE VE</span>
-                    <span class="badge badge-green" style="font-size: 0.85rem; padding: 8px 16px;"><i class="fa-solid fa-earth-americas" style="margin-right:8px;"></i> Mercado: Chile</span>
+            <div class="flex-center">
+                <div style="display: flex; gap: 12px; margin-bottom: 25px;">
+                    <span class="badge badge-blue pill-badge"><i class="fa-solid fa-car" style="margin-right:8px;"></i> EXPORTACIÓN DE <strong>VE</strong></span>
+                    <span class="badge badge-green pill-badge"><i class="fa-solid fa-earth-americas" style="margin-right:8px;"></i> Mercado: <strong>CHILE</strong></span>
                 </div>
                 
-                <h1 class="hero-title" style="margin-top: 20px;">Medios de Pago, Divisas<br>& Cobertura de Riesgo.</h1>
-                <p style="font-size: 1.3rem; color: var(--text-muted); max-width: 800px; margin-bottom: 20px; font-weight: 300;">
-                    Propuesta financiera para la exportación de vehículos eléctricos europeos de gama media/media-alta al mercado chileno.
-                </p>
+                <h1 class="hero-title" style="margin-top: 30px; margin-bottom: 20px;">Medios de Pago, Divisas<br>& Cobertura de Riesgo.</h1>
                 
-                <div style="margin-top: 80px; display: flex; align-items: center; justify-content: center; gap: 30px;">
-                    <div class="siri-wrapper" style="border-radius: 100px;">
-                        <div class="siri-wrapper-inner" style="padding: 15px 40px; border-radius: 100px; background: var(--text-heading);">
-                            <h3 class="text-siri" style="margin:0; letter-spacing: 4px; font-size: 1.3rem;">GRUPO GO5</h3>
+                <div style="display: flex; align-items: center; justify-content: center; gap: 30px; margin-top: 40px;">
+                    <div class="siri-border-active" style="border-radius: 100px; padding: 3px;">
+                        <div style="background: rgba(255,255,255,0.7); backdrop-filter: blur(20px); border-radius: 100px; padding: 15px 40px; display: flex; align-items: center; justify-content: center;">
+                            <span style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; color: var(--text-muted); letter-spacing: 4px;">GRUPO GO5</span>
                         </div>
                     </div>
                     <div style="border-left: 2px solid rgba(0,0,0,0.1); padding-left: 25px; text-align: left;">
@@ -366,9 +375,9 @@
             </div>
         </div>
 
-        <!-- SLIDE 2: OBJETIVO (TRIÁNGULO LENTO CON AURAS Y SÍMBOLO €) -->
+        <!-- SLIDE 2: OBJETIVO (TRIÁNGULO LENTO CON AURAS CONTINUAS Y EURO AZUL-GRIS) -->
         <div class="slide" id="s2">
-            <h2 class="slide-title"><i class="fa-solid fa-bullseye"></i> Objetivo de la propuesta</h2>
+            <h2 class="slide-title"><i class="fa-solid fa-bullseye" style="color: #ff007b;"></i> Objetivo de la propuesta</h2>
             <div class="grid-2">
                 <div class="flex-col">
                     <p style="font-size: 1.15rem; margin-bottom: 20px;">La propuesta busca asegurar una operación viable para ambas partes: <strong>segura para el exportador</strong> y <strong>asumible para el importador chileno</strong>.</p>
@@ -377,35 +386,35 @@
                 <div class="svg-container">
                     <svg viewBox="0 0 500 400" style="width: 100%; shape-rendering: geometricPrecision; overflow: visible;">
                         <defs>
-                            <linearGradient id="siriGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" stop-color="#00f2fe"><animate attributeName="stop-color" values="#00f2fe;#f3007f;#7000ff;#00f2fe" dur="6s" repeatCount="indefinite"/></stop>
-                                <stop offset="50%" stop-color="#f3007f"><animate attributeName="stop-color" values="#f3007f;#7000ff;#ff5e00;#f3007f" dur="6s" repeatCount="indefinite"/></stop>
-                                <stop offset="100%" stop-color="#7000ff"><animate attributeName="stop-color" values="#7000ff;#ff5e00;#00f2fe;#7000ff" dur="6s" repeatCount="indefinite"/></stop>
+                            <linearGradient id="auraSolid" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="var(--v-cyan)"><animate attributeName="stop-color" values="var(--v-cyan);var(--v-magenta);var(--v-blue);var(--v-cyan)" dur="8s" repeatCount="indefinite"/></stop>
+                                <stop offset="50%" stop-color="var(--v-magenta)"><animate attributeName="stop-color" values="var(--v-magenta);var(--v-orange);var(--v-cyan);var(--v-magenta)" dur="8s" repeatCount="indefinite"/></stop>
+                                <stop offset="100%" stop-color="var(--v-blue)"><animate attributeName="stop-color" values="var(--v-blue);var(--v-cyan);var(--v-magenta);var(--v-blue)" dur="8s" repeatCount="indefinite"/></stop>
                             </linearGradient>
-                            <filter id="auraGlow"><feGaussianBlur stdDeviation="6" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-                            <filter id="centerGlow"><feGaussianBlur stdDeviation="8" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+                            <filter id="auraGlow"><feGaussianBlur stdDeviation="15" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+                            <filter id="nodeGlow"><feGaussianBlur stdDeviation="4" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
                         </defs>
 
-                        <!-- Base Triangle with Siri Aura constant glow -->
-                        <polygon points="250,60 80,320 420,320" fill="rgba(255,255,255,0.4)" stroke="url(#siriGrad)" stroke-width="6" filter="url(#auraGlow)"/>
-                        <polygon points="250,60 80,320 420,320" fill="none" stroke="#fff" stroke-width="2"/>
+                        <!-- Constant Aura Flow -->
+                        <polygon points="250,50 80,320 420,320" fill="none" stroke="url(#auraSolid)" stroke-width="8" filter="url(#auraGlow)"/>
+                        <polygon points="250,50 80,320 420,320" fill="rgba(255,255,255,0.1)" stroke="url(#auraSolid)" stroke-width="3"/>
                         
-                        <!-- Center Glowing Euro -->
-                        <text x="250" y="215" text-anchor="middle" font-family="'Space Grotesk'" font-weight="900" font-size="60" fill="url(#siriGrad)" filter="url(#centerGlow)" style="animation: pulseGlow 3s infinite alternate;">€</text>
-                        
+                        <!-- Gray-Blue Euro Centered -->
+                        <text x="250" y="235" text-anchor="middle" font-family="'Space Grotesk'" font-weight="900" font-size="70" fill="#64748b" style="text-shadow: 0 0 15px rgba(100, 116, 139, 0.4);">€</text>
+
                         <!-- Corners -->
-                        <g transform="translate(250,60)">
-                            <circle r="25" fill="#fff" stroke="var(--sem-green)" stroke-width="3"/>
+                        <g transform="translate(250,50)">
+                            <circle r="25" fill="#fff" stroke="var(--sem-green)" stroke-width="3" filter="url(#nodeGlow)"/>
                             <text y="7" text-anchor="middle" font-family="'Font Awesome 6 Free'" font-weight="900" fill="var(--sem-green)" font-size="18">&#xf132;</text>
                             <text y="-40" text-anchor="middle" font-family="Space Grotesk" font-weight="700" fill="var(--text-heading)" font-size="16">Seguridad Cobro</text>
                         </g>
                         <g transform="translate(80,320)">
-                            <circle r="25" fill="#fff" stroke="var(--v-blue)" stroke-width="3"/>
+                            <circle r="25" fill="#fff" stroke="var(--v-blue)" stroke-width="3" filter="url(#nodeGlow)"/>
                             <text y="7" text-anchor="middle" font-family="'Font Awesome 6 Free'" font-weight="900" fill="var(--v-blue)" font-size="18">&#xf201;</text>
                             <text y="50" text-anchor="middle" font-family="Space Grotesk" font-weight="700" fill="var(--text-heading)" font-size="16">Proteger Margen</text>
                         </g>
                         <g transform="translate(420,320)">
-                            <circle r="25" fill="#fff" stroke="var(--sem-orange)" stroke-width="3"/>
+                            <circle r="25" fill="#fff" stroke="var(--sem-orange)" stroke-width="3" filter="url(#nodeGlow)"/>
                             <text y="7" text-anchor="middle" font-family="'Font Awesome 6 Free'" font-weight="900" fill="var(--sem-orange)" font-size="18">&#xf2b5;</text>
                             <text y="50" text-anchor="middle" font-family="Space Grotesk" font-weight="700" fill="var(--text-heading)" font-size="16">Facilitar Compra</text>
                         </g>
@@ -416,114 +425,111 @@
 
         <!-- SLIDE 3: CONTEXTO (TARJETAS CENTRADAS) -->
         <div class="slide" id="s3">
-            <h2 class="slide-title"><i class="fa-solid fa-layer-group"></i> Contexto de la operación</h2>
-            <p>El contexto justifica por qué no podemos usar condiciones de pago débiles o genéricas en esta transacción.</p>
-            <div class="grid-3" style="margin-top: 20px;">
-                <div class="glass-card glow-blue flex-center" style="padding: 40px; text-align: center;">
-                    <div style="margin-bottom: auto;">
-                        <h3 style="color: var(--v-blue); justify-content: center; margin-bottom: 25px;"><i class="fa-solid fa-car-side"></i> El Producto</h3>
+            <h2 class="slide-title"><i class="fa-solid fa-layer-group" style="color: #00e1ff;"></i> Contexto de la operación</h2>
+            <p style="text-align: center; margin-bottom: 30px;">El contexto justifica por qué no podemos usar condiciones de pago débiles o genéricas en esta transacción.</p>
+            <div class="grid-3" style="margin-top: 10px;">
+                <div class="glass-card glow-blue flex-center" style="text-align: center; padding: 40px 30px;">
+                    <div style="margin-bottom: 20px;">
+                        <h3 style="color: var(--v-blue); justify-content: center; margin-bottom: 15px;"><i class="fa-solid fa-car-side"></i> El Producto</h3>
                     </div>
-                    <ul class="clean-list" style="text-align: left;">
-                        <li>Vehículos eléctricos europeos.</li>
-                        <li>Gama media / media-alta.</li>
-                        <li>Valor ref: <strong>39.000 EUR</strong> / ud.</li>
-                    </ul>
+                    <div>
+                        <p style="font-size: 1.05rem; margin-bottom: 10px;">Vehículos eléctricos europeos.</p>
+                        <p style="font-size: 1.05rem; margin-bottom: 10px;">Gama media / media-alta.</p>
+                        <p style="font-size: 1.05rem; font-weight: 700; color: var(--text-heading); margin: 0;">Valor ref: 39.000 EUR / ud.</p>
+                    </div>
                 </div>
-                <div class="glass-card glow-green flex-center" style="padding: 40px; text-align: center;">
-                    <div style="margin-bottom: auto;">
-                        <h3 style="color: var(--sem-green); justify-content: center; margin-bottom: 25px;"><i class="fa-solid fa-route"></i> Logística</h3>
+                <div class="glass-card glow-green flex-center" style="text-align: center; padding: 40px 30px;">
+                    <div style="margin-bottom: 20px;">
+                        <h3 style="color: var(--sem-green); justify-content: center; margin-bottom: 15px;"><i class="fa-solid fa-route"></i> Logística</h3>
                     </div>
-                    <ul class="clean-list" style="text-align: left;">
-                        <li>Incoterm: <strong>CIF Pto. San Antonio</strong>.</li>
-                        <li>Mercado destino: Chile.</li>
-                        <li>Estabilidad comercial en destino.</li>
-                    </ul>
+                    <div>
+                        <p style="font-size: 1.05rem; margin-bottom: 10px;">Incoterm: <strong>CIF Pto. San Antonio</strong>.</p>
+                        <p style="font-size: 1.05rem; margin-bottom: 10px;">Mercado destino: Chile.</p>
+                        <p style="font-size: 1.05rem; margin: 0;">Estabilidad comercial en destino.</p>
+                    </div>
                 </div>
-                <div class="glass-card glow-red flex-center" style="padding: 40px; text-align: center;">
-                    <div style="margin-bottom: auto;">
-                        <h3 style="color: var(--sem-red); justify-content: center; margin-bottom: 25px;"><i class="fa-solid fa-triangle-exclamation"></i> Riesgo Inicial</h3>
+                <div class="glass-card glow-red flex-center" style="text-align: center; padding: 40px 30px;">
+                    <div style="margin-bottom: 20px;">
+                        <h3 style="color: var(--sem-red); justify-content: center; margin-bottom: 15px;"><i class="fa-solid fa-triangle-exclamation"></i> Riesgo Inicial</h3>
                     </div>
-                    <ul class="clean-list" style="text-align: left;">
-                        <li><strong>Primera operación</strong> internacional.</li>
-                        <li>Historial de confianza nulo.</li>
-                        <li>Alto valor inmovilizado en tránsito.</li>
-                    </ul>
+                    <div>
+                        <p style="font-size: 1.05rem; margin-bottom: 10px;"><strong>Primera operación</strong> internacional.</p>
+                        <p style="font-size: 1.05rem; margin-bottom: 10px;">Historial de confianza nulo.</p>
+                        <p style="font-size: 1.05rem; margin: 0;">Alto valor inmovilizado en tránsito.</p>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- SLIDE 4: MATRIZ DE RIESGOS (DASHBOARD BAJADO) -->
         <div class="slide" id="s4">
-            <h2 class="slide-title"><i class="fa-solid fa-radiation"></i> Riesgos de partida</h2>
-            <p>Cada decisión financiera del plan responde a un riesgo concreto que queremos reducir o anular.</p>
-            <div style="flex: 1; display: flex; align-items: center; justify-content: center; margin-top: 40px;">
-                <div class="data-panel" style="width: 100%;">
-                    <div class="data-row data-header">
-                        <div>Foco de Riesgo</div>
-                        <div>Impacto Operativo Real</div>
-                        <div style="text-align: center;">Nivel</div>
-                    </div>
-                    <div class="data-row row-hover-red">
-                        <div class="row-title">Riesgo de Impago</div>
-                        <div class="row-desc">El comprador no abona el saldo final o retrasa el pago de forma indefinida.</div>
-                        <div style="text-align: center;"><span class="badge badge-red">Crítico</span></div>
-                    </div>
-                    <div class="data-row row-hover-red">
-                        <div class="row-title">Riesgo de Demora</div>
-                        <div class="row-desc">Bloqueo de embarques, documentación y costes extra de almacenaje portuario.</div>
-                        <div style="text-align: center;"><span class="badge badge-red">Alto</span></div>
-                    </div>
-                    <div class="data-row row-hover-orange">
-                        <div class="row-title">Riesgo Cambiario</div>
-                        <div class="row-desc">El chileno necesita más CLP para comprar EUR. La importación se encarece.</div>
-                        <div style="text-align: center;"><span class="badge badge-yellow">Medio-Alto</span></div>
-                    </div>
-                    <div class="data-row row-hover-blue">
-                        <div class="row-title">Riesgo Contractual</div>
-                        <div class="row-desc">Comisiones imprevistas de bancos, retrasos SWIFT, ambigüedad legal.</div>
-                        <div style="text-align: center;"><span class="badge badge-blue">Gestionable</span></div>
+            <h2 class="slide-title"><i class="fa-solid fa-radiation" style="color: #ff5e00;"></i> Riesgos de partida</h2>
+            <p style="text-align: center; margin-bottom: 20px;">Cada decisión financiera del plan responde a un riesgo concreto que queremos reducir o anular.</p>
+            <div style="flex: 1; display: flex; align-items: center; justify-content: center; padding-top: 20px;">
+                <div class="data-panel-wrapper" style="width: 100%;">
+                    <div class="data-panel">
+                        <div class="data-row data-header">
+                            <div>Foco de Riesgo</div>
+                            <div>Impacto Operativo Real</div>
+                            <div style="text-align: center;">Nivel</div>
+                        </div>
+                        <div class="data-row row-hover-red">
+                            <div class="row-title">Riesgo de Impago</div>
+                            <div class="row-desc">El comprador no abona el saldo final o retrasa el pago de forma indefinida.</div>
+                            <div style="text-align: center;"><span class="badge badge-red">Crítico</span></div>
+                        </div>
+                        <div class="data-row row-hover-red">
+                            <div class="row-title">Riesgo de Demora</div>
+                            <div class="row-desc">Bloqueo de embarques, documentación y costes extra de almacenaje portuario.</div>
+                            <div style="text-align: center;"><span class="badge badge-red">Alto</span></div>
+                        </div>
+                        <div class="data-row row-hover-orange">
+                            <div class="row-title">Riesgo Cambiario</div>
+                            <div class="row-desc">El chileno necesita más CLP para comprar EUR. La importación se encarece.</div>
+                            <div style="text-align: center;"><span class="badge badge-yellow">Medio-Alto</span></div>
+                        </div>
+                        <div class="data-row row-hover-blue">
+                            <div class="row-title">Riesgo Contractual</div>
+                            <div class="row-desc">Comisiones imprevistas de bancos, retrasos SWIFT, ambigüedad legal.</div>
+                            <div style="text-align: center;"><span class="badge badge-blue">Gestionable</span></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- SLIDE 5: MEDIOS SIMPLES (ENRIQUECIDA CON MOVIMIENTO MULTICOLOR) -->
+        <!-- SLIDE 5: MEDIOS SIMPLES (INFOGRAFÍA CON FLOTACIÓN) -->
         <div class="slide" id="s5">
-            <h2 class="slide-title"><i class="fa-solid fa-server"></i> Medios de pago simples</h2>
+            <h2 class="slide-title"><i class="fa-solid fa-server" style="color: #7000ff;"></i> Medios de pago simples</h2>
             <div class="grid-2">
                 <div class="flex-col">
                     <div class="glass-card glow-blue" style="margin-bottom: 20px;">
-                        <p style="margin: 0; font-size: 1.05rem;">Las entidades bancarias intervienen <strong>exclusivamente como canales técnicos de transmisión</strong>. A diferencia del crédito documentario, el banco no audita documentos ni asegura fondos.</p>
+                        <p style="margin: 0; font-size: 1.05rem;">Las entidades bancarias intervienen <strong>exclusivamente como canales técnicos de transmisión</strong>, facilitando el flujo internacional.</p>
                     </div>
                     <div class="glass-card glow-red" style="margin-bottom: 20px;">
-                        <p style="margin: 0; font-size: 1.05rem;">El banco <strong>no garantiza que el comprador pague</strong> ni verifica que la mercancía se haya entregado conforme a lo pactado. El riesgo de crédito recae en los actores comerciales.</p>
+                        <p style="margin: 0; font-size: 1.05rem;">El banco <strong>no garantiza que el comprador pague</strong> ni verifica que la mercancía se haya entregado conforme a lo pactado. El riesgo comercial se mantiene.</p>
                     </div>
                     <div class="glass-card glow-green" style="background: rgba(16,185,129,0.05); border-color: var(--sem-green);">
-                        <strong style="color: var(--sem-green); display: block; margin-bottom: 5px;">Aplicación al proyecto</strong>
-                        <p style="margin: 0; font-size: 1.05rem;">Para vehículos eléctricos de alto valor, solo son adecuados si se blindan con <strong>pagos anticipados y cláusulas de retención estrictas</strong>.</p>
+                        <strong style="color: var(--sem-green); display: block; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px;">Aplicación al proyecto</strong>
+                        <p style="margin: 0; font-size: 1.05rem;">Para vehículos eléctricos de alto valor, solo son adecuados si se refuerzan con <strong>anticipo y cláusulas estrictas de protección</strong>.</p>
                     </div>
                 </div>
                 <div class="svg-container">
                     <svg viewBox="0 0 400 300" style="width: 100%; shape-rendering: geometricPrecision;">
-                        <!-- Animated Lines -->
-                        <path d="M 100 110 Q 100 150 140 150" fill="none" stroke="var(--v-blue)" stroke-width="3" class="slow-dash"/>
-                        <path d="M 260 150 Q 300 150 300 190" fill="none" stroke="var(--v-orange)" stroke-width="3" class="slow-dash"/>
-
-                        <!-- Float Cards Multi-color -->
                         <g class="float-card">
                             <rect x="30" y="50" width="140" height="60" rx="12" fill="#fff" stroke="var(--v-blue)" stroke-width="2" filter="drop-shadow(0 5px 10px rgba(0,0,0,0.05))"/>
                             <foreignObject x="30" y="50" width="140" height="60">
                                 <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
-                                    <span class="text-siri-blue" style="font-family: 'Space Grotesk'; font-size: 16px;">Exportador</span>
+                                    <span class="text-siri" style="font-family: 'Space Grotesk'; font-size: 16px; background: linear-gradient(120deg, #00f2fe, #007aff); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Exportador</span>
                                 </div>
                             </foreignObject>
                         </g>
                         
                         <g class="float-card" style="animation-delay: -3s;">
-                            <rect x="230" y="190" width="140" height="60" rx="12" fill="#fff" stroke="var(--v-orange)" stroke-width="2" filter="drop-shadow(0 5px 10px rgba(0,0,0,0.05))"/>
+                            <rect x="230" y="190" width="140" height="60" rx="12" fill="#fff" stroke="var(--sem-orange)" stroke-width="2" filter="drop-shadow(0 5px 10px rgba(0,0,0,0.05))"/>
                             <foreignObject x="230" y="190" width="140" height="60">
                                 <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
-                                    <span class="text-siri-orange" style="font-family: 'Space Grotesk'; font-size: 16px;">Importador</span>
+                                    <span class="text-siri" style="font-family: 'Space Grotesk'; font-size: 16px; background: linear-gradient(120deg, #ff5e00, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Importador</span>
                                 </div>
                             </foreignObject>
                         </g>
@@ -531,18 +537,25 @@
                         <rect x="140" y="115" width="120" height="70" rx="12" fill="rgba(255,255,255,0.7)" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="5,5" backdrop-filter="blur(10px)"/>
                         <text x="200" y="145" text-anchor="middle" font-family="Space Grotesk" font-weight="700" fill="var(--text-muted)" font-size="13">Red Bancaria</text>
                         <text x="200" y="165" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="11" fill="var(--text-muted)">(Sin garantía)</text>
+                        
+                        <!-- Animated flowing lines -->
+                        <path d="M 100 110 Q 100 150 140 150" fill="none" stroke="var(--v-blue)" stroke-width="3" stroke-dasharray="6,6" class="slow-dash"/>
+                        <path d="M 260 150 Q 300 150 300 190" fill="none" stroke="var(--sem-orange)" stroke-width="3" stroke-dasharray="6,6" class="slow-dash" style="animation-direction: reverse;"/>
                     </svg>
                 </div>
             </div>
         </div>
 
-        <!-- SLIDE 6: COMPARATIVA DE MEDIOS (CENTRADA + HOVER SUBTLE) -->
+        <!-- SLIDE 6: COMPARATIVA DE MEDIOS (HOVER BORDER GLOW SUTIL CENTRADA) -->
         <div class="slide" id="s6">
-            <h2 class="slide-title"><i class="fa-solid fa-code-compare"></i> Comparativa de medios simples</h2>
+            <h2 class="slide-title"><i class="fa-solid fa-code-compare" style="color: #10b981;"></i> Comparativa de medios simples</h2>
             <div style="flex: 1; display: flex; align-items: center; justify-content: center; margin-top: 20px;">
                 <div class="data-panel" style="width: 100%;">
                     <div class="data-row data-header four-cols">
-                        <div>Medio</div><div>Ventaja Principal</div><div>Inconveniente</div><div style="text-align: center;">Adecuación</div>
+                        <div style="text-align: left;">Medio</div>
+                        <div style="text-align: left;">Ventaja Principal</div>
+                        <div style="text-align: left;">Inconveniente</div>
+                        <div style="text-align: center;">Adecuación</div>
                     </div>
                     <div class="data-row four-cols row-hover-blue">
                         <div class="row-title">Transferencia SWIFT</div>
@@ -580,7 +593,7 @@
 
         <!-- SLIDE 7: SELECCIÓN CENTRADA -->
         <div class="slide" id="s7">
-            <h2 class="slide-title"><i class="fa-solid fa-check-double"></i> Medio seleccionado y justificación</h2>
+            <h2 class="slide-title"><i class="fa-solid fa-check-double" style="color: #007aff;"></i> Medio seleccionado y justificación</h2>
             <div class="grid-2">
                 <div class="flex-center">
                     <div class="glass-card glow-green flex-center" style="background: rgba(16, 185, 129, 0.05); padding: 40px; text-align: center; border-color: rgba(16,185,129,0.5); width: 100%;">
@@ -601,92 +614,90 @@
             </div>
         </div>
 
-        <!-- SLIDE 8: TIMELINE ORIGINAL SIMPLE -->
+        <!-- SLIDE 8: TIMELINE CARDS CRISTALIZADAS -->
         <div class="slide" id="s8">
-            <h2 class="slide-title"><i class="fa-solid fa-diagram-project"></i> Estructura operativa de pago/cobro</h2>
+            <h2 class="slide-title"><i class="fa-solid fa-diagram-project" style="color: #f3007f;"></i> Estructura operativa de pago/cobro</h2>
             <p style="text-align: center; margin-bottom: 40px;">El pago se divide en hitos para que el flujo financiero acompañe simétricamente el avance logístico.</p>
             
-            <div class="timeline" style="margin-top: 60px;">
+            <div class="timeline" style="margin-top: 50px;">
                 <div class="tl-node">
-                    <div class="tl-dot green"><i class="fa-solid fa-signature" style="color: var(--sem-green); font-size: 18px;"></i></div>
-                    <div style="font-family: var(--font-display); font-size: 3.5rem; font-weight: 800; color: var(--sem-green); line-height: 1; margin-bottom: 10px;">40%</div>
-                    <strong style="display:block; margin-bottom: 5px; font-size: 1.1rem;">Anticipo</strong>
-                    <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.4; margin:0;">Firma de contrato / Proforma.<br>Inicia planificación y reserva.</p>
+                    <div class="tl-dot green"><i class="fa-solid fa-signature" style="color: var(--sem-green); font-size: 20px;"></i></div>
+                    <div class="glass-card glow-green" style="padding: 20px; border-radius: 28px; text-align: center; justify-content: flex-start;">
+                        <div style="font-family: var(--font-display); font-size: 3rem; font-weight: 800; color: var(--sem-green); line-height: 1; margin-bottom: 10px;">40%</div>
+                        <strong style="display:block; margin-bottom: 5px; font-size: 1.1rem;">Anticipo</strong>
+                        <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.4; margin:0;">Firma de contrato / Proforma.<br>Inicia planificación y reserva.</p>
+                    </div>
                 </div>
                 <div class="tl-node">
-                    <div class="tl-dot"><i class="fa-solid fa-box" style="color: var(--text-muted); font-size: 18px;"></i></div>
-                    <div style="font-family: var(--font-display); font-size: 3.5rem; font-weight: 800; color: var(--text-muted); line-height: 1; margin-bottom: 10px;">0%</div>
-                    <strong style="display:block; margin-bottom: 5px; font-size: 1.1rem;">Logística</strong>
-                    <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.4; margin:0;">Preparación documental.<br>El exportador avanza la operación.</p>
+                    <div class="tl-dot"><i class="fa-solid fa-box" style="color: var(--text-muted); font-size: 20px;"></i></div>
+                    <div class="glass-card" style="padding: 20px; border-radius: 28px; text-align: center; justify-content: flex-start; opacity: 0.8;">
+                        <div style="font-family: var(--font-display); font-size: 3rem; font-weight: 800; color: var(--text-muted); line-height: 1; margin-bottom: 10px;">0%</div>
+                        <strong style="display:block; margin-bottom: 5px; font-size: 1.1rem;">Logística</strong>
+                        <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.4; margin:0;">Preparación documental.<br>El exportador avanza la operación.</p>
+                    </div>
                 </div>
                 <div class="tl-node">
-                    <div class="tl-dot blue"><i class="fa-solid fa-ship" style="color: var(--v-blue); font-size: 18px;"></i></div>
-                    <div style="font-family: var(--font-display); font-size: 3.5rem; font-weight: 800; color: var(--v-blue); line-height: 1; margin-bottom: 10px;">60%</div>
-                    <strong style="display:block; margin-bottom: 5px; font-size: 1.1rem;">Saldo Final</strong>
-                    <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.4; margin:0;">Antes del embarque marítimo.<br>Libera la mercancía.</p>
+                    <div class="tl-dot blue"><i class="fa-solid fa-ship" style="color: var(--v-blue); font-size: 20px;"></i></div>
+                    <div class="glass-card glow-blue" style="padding: 20px; border-radius: 28px; text-align: center; justify-content: flex-start;">
+                        <div style="font-family: var(--font-display); font-size: 3rem; font-weight: 800; color: var(--v-blue); line-height: 1; margin-bottom: 10px;">60%</div>
+                        <strong style="display:block; margin-bottom: 5px; font-size: 1.1rem;">Saldo Final</strong>
+                        <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.4; margin:0;">Antes del embarque marítimo.<br>Libera la mercancía.</p>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- SLIDE 9: DIVISA CON SIRI HOVER-ONLY -->
+        <!-- SLIDE 9: DIVISA CON TARJAS (SIRI GLOW) -->
         <div class="slide" id="s9">
-            <h2 class="slide-title"><i class="fa-solid fa-coins"></i> Divisa seleccionada: EUR</h2>
+            <h2 class="slide-title"><i class="fa-solid fa-coins" style="color: #007aff;"></i> Divisa seleccionada: EUR</h2>
             <p style="font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; color: var(--v-blue); text-align: center; margin-bottom: 30px;">
                 "EUR protege el margen del exportador; CLP/EUR debe gestionarse para que el comprador pueda cumplir."
             </p>
             <div class="grid-2">
-                <div class="siri-hover-only flex-center" style="text-align: center;">
-                    <div style="position: relative; z-index: 2;">
-                        <h3 style="justify-content: center; font-size: 2rem; color: var(--text-heading);">Exportador (GO5)</h3>
-                        <div style="font-family: var(--font-display); font-size: 5.5rem; font-weight: 800; margin: 20px 0; color: var(--v-blue);">EUR</div>
-                        <p style="font-size: 1.05rem;">Producción, logística, seguros y margen industrial denominados en Euros.<br><strong>Riesgo cambiario = 0%.</strong></p>
-                    </div>
+                <div class="glass-card glass-siri flex-center" style="text-align: center;">
+                    <h3 style="justify-content: center; font-size: 2rem; color: var(--text-heading);">Exportador (GO5)</h3>
+                    <div style="font-family: var(--font-display); font-size: 5.5rem; font-weight: 800; margin: 20px 0; color: var(--v-blue);">EUR</div>
+                    <p style="font-size: 1.05rem;">Producción, logística, seguros y margen industrial denominados en Euros.<br><strong>Riesgo cambiario = 0%.</strong></p>
                 </div>
-                <div class="siri-hover-only flex-center" style="text-align: center; filter: hue-rotate(180deg);">
-                    <div style="position: relative; z-index: 2; filter: hue-rotate(-180deg);">
-                        <h3 style="justify-content: center; font-size: 2rem; color: var(--sem-red);">Importador (Chile)</h3>
-                        <div style="font-family: var(--font-display); font-size: 5.5rem; font-weight: 800; margin: 20px 0; color: var(--sem-red);">CLP</div>
-                        <p style="font-size: 1.05rem;">Opera y vende en Pesos Chilenos. Debe comprar EUR.<br>El riesgo cambiario <strong>se concentra en él</strong>.</p>
-                    </div>
+                <div class="glass-card glass-siri flex-center" style="text-align: center;">
+                    <h3 style="justify-content: center; font-size: 2rem; color: var(--sem-red);">Importador (Chile)</h3>
+                    <div style="font-family: var(--font-display); font-size: 5.5rem; font-weight: 800; margin: 20px 0; color: var(--sem-red);">CLP</div>
+                    <p style="font-size: 1.05rem;">Opera y vende en Pesos Chilenos. Debe comprar EUR.<br>El riesgo cambiario <strong>se concentra en él</strong>.</p>
                 </div>
             </div>
         </div>
 
-        <!-- SLIDE 10: REFERENCIAS FINANCIERAS ENRIQUECIDAS (SIRI HOVER-ONLY CENTRADO) -->
+        <!-- SLIDE 10: REFERENCIAS FINANCIERAS ENRIQUECIDAS (SIRI GLOW) -->
         <div class="slide" id="s10">
-            <h2 class="slide-title"><i class="fa-solid fa-chart-pie"></i> Tipo de cambio e interés de referencia</h2>
+            <h2 class="slide-title"><i class="fa-solid fa-chart-pie" style="color: #ff5e00;"></i> Tipo de cambio e interés de referencia</h2>
             <p style="margin-bottom: 30px;">Datos financieros orientativos y actualizables. No modifican las obligaciones contractuales en EUR.</p>
             <div class="grid-2">
-                <div class="siri-hover-only flex-center" style="text-align: center;">
-                    <div style="position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; width: 100%;">
-                        <div class="badge badge-blue" style="margin-bottom: 20px;">Cotización Orientativa</div>
-                        <div style="font-family: var(--font-display); font-size: 4rem; font-weight: 800; color: var(--text-heading); line-height: 1;">1 € ≈ 1.050 $</div>
-                        <p style="font-size: 0.95rem; color: var(--text-muted); margin: 20px 0;">Fecha ref: 12 Mayo 2026 (Banco Central de Chile).</p>
-                        <ul class="clean-list" style="text-align: left; align-self: center;">
-                            <li>El importe de la factura en EUR es <strong>inamovible</strong>.</li>
-                            <li>La equivalencia en CLP solo estima el coste operativo.</li>
-                            <li>No aplicamos cláusula de revisión de precios.</li>
-                        </ul>
-                    </div>
+                <div class="glass-card glass-siri flex-center" style="text-align: center;">
+                    <div class="badge badge-blue" style="margin-bottom: 20px;">Cotización Orientativa</div>
+                    <div style="font-family: var(--font-display); font-size: 4rem; font-weight: 800; color: var(--text-heading); line-height: 1;">1 € ≈ 1.050 $</div>
+                    <p style="font-size: 0.95rem; color: var(--text-muted); margin: 20px 0;">Fecha ref: 12 Mayo 2026 (Banco Central de Chile).</p>
+                    <ul class="clean-list" style="text-align: left; align-self: center;">
+                        <li>El importe de la factura en EUR es <strong>inamovible</strong>.</li>
+                        <li>La equivalencia en CLP solo estima el coste operativo.</li>
+                        <li>Aclaración: No aplicamos cláusula de revisión de precios.</li>
+                    </ul>
                 </div>
-                <div class="siri-hover-only flex-center" style="text-align: center; filter: hue-rotate(90deg);">
-                    <div style="position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; width: 100%; filter: hue-rotate(-90deg);">
-                        <div class="badge badge-red" style="margin-bottom: 20px;">Interés de Demora</div>
-                        <div style="font-family: var(--font-display); font-size: 4rem; font-weight: 800; color: var(--sem-red); line-height: 1;">4.75% <span style="font-size: 1.8rem; color: var(--text-muted);">/ año</span></div>
-                        <p style="font-size: 0.95rem; color: var(--text-muted); margin: 20px 0;">Euríbor (2.75%) + Diferencial Comercial (2.00%).</p>
-                        <ul class="clean-list" style="text-align: left; align-self: center;">
-                            <li>No ofrecemos financiación a largo plazo.</li>
-                            <li>Tasa aplicable <strong>solo si retrasa</strong> el pago del 60%.</li>
-                            <li>Se calculará prorrateado por día de retraso.</li>
-                        </ul>
-                    </div>
+                <div class="glass-card glass-siri flex-center" style="text-align: center;">
+                    <div class="badge badge-red" style="margin-bottom: 20px;">Interés de Demora</div>
+                    <div style="font-family: var(--font-display); font-size: 4rem; font-weight: 800; color: var(--sem-red); line-height: 1;">4.75% <span style="font-size: 1.8rem; color: var(--text-muted);">/ año</span></div>
+                    <p style="font-size: 0.95rem; color: var(--text-muted); margin: 20px 0;">Euríbor (2.75%) + Diferencial Comercial (2.00%).</p>
+                    <ul class="clean-list" style="text-align: left; align-self: center;">
+                        <li>No ofrecemos financiación a largo plazo.</li>
+                        <li>Tasa aplicable <strong>solo si retrasa</strong> el pago del 60%.</li>
+                        <li>Se calculará prorrateado por día de retraso.</li>
+                    </ul>
                 </div>
             </div>
         </div>
 
         <!-- SLIDE 11: CONDICIONES CONTRACTUALES CON MÁS COLOR -->
         <div class="slide" id="s11">
-            <h2 class="slide-title"><i class="fa-solid fa-file-contract"></i> Negociación de condiciones de pago/cobro</h2>
+            <h2 class="slide-title"><i class="fa-solid fa-file-contract" style="color: #10b981;"></i> Negociación de condiciones de pago/cobro</h2>
             <p style="margin-bottom: 25px;">El contrato debe funcionar como una cláusula comercial que equilibra seguridad y viabilidad.</p>
             <div class="grid-3">
                 <div class="glass-card glow-blue" style="background: linear-gradient(135deg, rgba(255,255,255,0.8), rgba(0,122,255,0.05));">
@@ -716,9 +727,9 @@
             </div>
         </div>
 
-        <!-- SLIDE 12: CLÁUSULAS DE CONTROL (COLORES POR FILA) -->
+        <!-- SLIDE 12: CLÁUSULAS DE CONTROL (HOVER COLORS CENTRADO) -->
         <div class="slide" id="s12">
-            <h2 class="slide-title"><i class="fa-solid fa-gavel"></i> Cláusulas de control: comisiones, demora y no pago</h2>
+            <h2 class="slide-title"><i class="fa-solid fa-gavel" style="color: #ef4444;"></i> Cláusulas de control: comisiones, demora y no pago</h2>
             <p style="margin-bottom: 25px;">La claridad contractual evita diferencias bancarias, retrasos y conflictos logísticos.</p>
             <div style="flex: 1; display: flex; align-items: center; justify-content: center;">
                 <div class="data-panel-wrapper" style="width: 100%;">
@@ -728,22 +739,22 @@
                             <div>Acción Contractual de GO5</div>
                             <div style="text-align: center;">Impacto / Solución</div>
                         </div>
-                        <div class="data-row row-hover-blue">
+                        <div class="data-row row-hover-blue" style="border-left: 4px solid var(--v-blue);">
                             <div class="row-title">Comisiones descontadas (SHA erróneo)</div>
                             <div class="row-desc">El comprador debe emitir un abono inmediato por la diferencia.</div>
                             <div style="text-align: center;"><span class="badge badge-blue">Regularización</span></div>
                         </div>
-                        <div class="data-row row-hover-red">
+                        <div class="data-row row-hover-red" style="border-left: 4px solid var(--sem-red);">
                             <div class="row-title">Retraso en ventana de pago</div>
                             <div class="row-desc">Activación de la cláusula de interés de demora sobre saldo pendiente.</div>
                             <div style="text-align: center;"><span class="badge badge-red">Interés Mora</span></div>
                         </div>
-                        <div class="data-row row-hover-red">
+                        <div class="data-row row-hover-red" style="border-left: 4px solid var(--sem-red);">
                             <div class="row-title">Impago del saldo final</div>
                             <div class="row-desc">Suspensión del embarque, retención de BL y traslado de almacenaje.</div>
                             <div style="text-align: center;"><span class="badge badge-red">No Embarque</span></div>
                         </div>
-                        <div class="data-row row-hover-orange">
+                        <div class="data-row row-hover-orange" style="border-left: 4px solid var(--sem-orange);">
                             <div class="row-title">Oferta vencida (>15 días)</div>
                             <div class="row-desc">El contrato expira. Necesidad de recotizar fletes logísticos.</div>
                             <div style="text-align: center;"><span class="badge badge-yellow">Revisión Precios</span></div>
@@ -753,57 +764,56 @@
             </div>
         </div>
 
-        <!-- SLIDE 13: RIESGO DE CAMBIO (GRAFICO ARREGLADO VISIBLE COMPLETAMENTE) -->
+        <!-- SLIDE 13: RIESGO DE CAMBIO (GRAFICO ARREGLADO Y MENOS TRANSPARENTE VERDE/MORADO) -->
         <div class="slide" id="s13">
-            <h2 class="slide-title"><i class="fa-solid fa-arrow-trend-down"></i> Riesgo de tipo de cambio</h2>
+            <h2 class="slide-title"><i class="fa-solid fa-arrow-trend-down" style="color: #ff5e00;"></i> Riesgo de tipo de cambio</h2>
             <div class="grid-2">
                 <div class="flex-col">
                     <p>Aunque nosotros (GO5) cobramos seguros en EUR, el riesgo del comprador afecta la viabilidad del negocio.</p>
                     <p>El contrato se fija en EUR, pero el cliente opera en CLP. <strong>Si el peso chileno se deprecia frente al euro entre la firma y el pago final</strong>, el comprador necesitará inyectar muchos más CLP para adquirir los mismos euros.</p>
-                    <div class="glass-card glow-red flex-center" style="padding: 20px; border-left: 4px solid var(--sem-red); margin-top: 15px; text-align: center;">
+                    <div class="glass-card glow-red flex-center" style="padding: 20px; border-left: 4px solid var(--sem-red); margin-top: 15px; text-align: center; background: rgba(255,255,255,0.85);">
                         <strong style="color: var(--sem-red); margin-bottom: 5px; font-size: 1.1rem;">Impacto comercial:</strong>
                         <p style="margin:0; font-size: 0.95rem;">Reduce el margen del importador, tensiona su tesorería local y aumenta el riesgo de demora o renegociación forzada.</p>
                     </div>
                 </div>
                 <div class="svg-container">
-                    <div style="position: absolute; width: 100%; height: 100%; border-radius: 24px; background: linear-gradient(120deg, var(--v-cyan), var(--v-magenta), var(--v-violet)); filter: blur(50px); opacity: 0.3; z-index: 1;"></div>
-                    <div style="width: 100%; height: 100%; background: rgba(255,255,255,0.15); backdrop-filter: blur(20px); border-radius: 24px; border: 1px solid rgba(255,255,255,0.4); display: flex; align-items: center; justify-content: center; z-index: 2; padding: 20px;">
-                        <svg viewBox="0 0 600 300" style="width:100%; shape-rendering: geometricPrecision; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.05));" class="floating-svg">
-                            <line x1="60" y1="250" x2="520" y2="250" stroke="#cbd5e1" stroke-width="2"/>
-                            <line x1="60" y1="250" x2="60" y2="50" stroke="#cbd5e1" stroke-width="2"/>
-                            
-                            <!-- Curva Base -->
-                            <path d="M 60 200 C 200 200, 250 100, 500 100" fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="5,5"/>
-                            
-                            <!-- Curva Depreciación con Glow -->
-                            <defs><filter id="redGlow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
-                            <path d="M 60 200 C 200 200, 250 100, 500 60" fill="none" stroke="var(--sem-red)" stroke-width="5" filter="url(#redGlow)"/>
-                            
-                            <circle cx="60" cy="200" r="7" fill="var(--v-blue)"/>
-                            <circle cx="500" cy="60" r="9" fill="var(--sem-red)"/>
-                            
-                            <text x="60" y="275" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="13" fill="#64748b" font-weight="600">Firma (40%)</text>
-                            <text x="500" y="275" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="13" fill="#64748b" font-weight="600">Pago (60%)</text>
-                            
-                            <text x="500" y="40" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="15" fill="var(--sem-red)">Coste en CLP ↑</text>
-                            <path d="M 500 160 L 500 80" fill="none" stroke="var(--sem-red)" stroke-width="2" stroke-dasharray="4,4" marker-end="url(#arrow-red)"/>
-                            <!-- TEXTO COMPLETAMENTE VISIBLE -->
-                            <text x="510" y="125" font-family="Plus Jakarta Sans" font-size="14" fill="var(--sem-red)" font-weight="700">Devaluación</text>
-                            
-                            <defs>
-                                <marker id="arrow-red" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-                                    <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--sem-red)"/>
-                                </marker>
-                            </defs>
-                        </svg>
-                    </div>
+                    <!-- Glow de fondo multicolor -->
+                    <div style="position: absolute; width: 100%; height: 100%; border-radius: 24px; background: linear-gradient(120deg, var(--v-cyan), var(--v-magenta), var(--v-violet)); filter: blur(40px); opacity: 0.4; z-index: 1;"></div>
+                    
+                    <svg viewBox="0 0 600 300" style="width:100%; shape-rendering: geometricPrecision; z-index: 2; background: rgba(255,255,255,0.05); backdrop-filter: blur(15px); border-radius: 24px; border: 1px solid rgba(255,255,255,0.4);" class="floating-svg">
+                        <line x1="60" y1="250" x2="520" y2="250" stroke="#cbd5e1" stroke-width="2"/>
+                        <line x1="60" y1="250" x2="60" y2="50" stroke="#cbd5e1" stroke-width="2"/>
+                        
+                        <!-- Curva Base -->
+                        <path d="M 60 200 C 200 200, 250 100, 500 100" fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="5,5"/>
+                        
+                        <!-- Curva Depreciación con Glow -->
+                        <defs><filter id="purpleGlow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+                        <path d="M 60 200 C 200 200, 250 100, 500 60" fill="none" stroke="var(--sem-green)" stroke-width="5" filter="url(#purpleGlow)"/>
+                        
+                        <circle cx="60" cy="200" r="7" fill="var(--v-blue)"/>
+                        <circle cx="500" cy="60" r="9" fill="var(--v-violet)"/>
+                        
+                        <text x="60" y="275" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="13" fill="#334155" font-weight="600">Firma (40%)</text>
+                        <text x="500" y="275" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="13" fill="#334155" font-weight="600">Pago (60%)</text>
+                        
+                        <text x="500" y="40" text-anchor="end" font-family="Space Grotesk" font-weight="700" font-size="15" fill="var(--sem-green)">Coste en CLP ↑</text>
+                        <path d="M 500 160 L 500 80" fill="none" stroke="var(--sem-green)" stroke-width="2" stroke-dasharray="4,4" marker-end="url(#arrow-green)"/>
+                        <text x="495" y="135" font-family="Plus Jakarta Sans" font-size="14" fill="var(--v-violet)" font-weight="700" text-anchor="end">Devaluación</text>
+                        
+                        <defs>
+                            <marker id="arrow-green" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                                <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--sem-green)"/>
+                            </marker>
+                        </defs>
+                    </svg>
                 </div>
             </div>
         </div>
 
         <!-- SLIDE 14: MECANISMO FORWARD CENTRADO -->
         <div class="slide" id="s14">
-            <h2 class="slide-title"><i class="fa-solid fa-umbrella"></i> Mecanismo de cobertura seleccionado: Forward</h2>
+            <h2 class="slide-title"><i class="fa-solid fa-umbrella" style="color: #10b981;"></i> Mecanismo de cobertura seleccionado: Forward</h2>
             <div class="grid-2">
                 <div class="flex-col">
                     <p style="font-family: var(--font-display); font-size: 1.4rem; font-weight: 600; color: var(--sem-green); margin-bottom: 25px; line-height: 1.4;">
@@ -815,12 +825,12 @@
                 <div class="flex-col">
                     <div class="glass-card glow-green flex-center" style="background: rgba(16,185,129,0.05); border-color: rgba(16,185,129,0.3); text-align: center;">
                         <h3 style="color: var(--sem-green); justify-content: center;"><i class="fa-solid fa-puzzle-piece"></i> ¿Por qué encaja?</h3>
-                        <div style="text-align: left; margin: 15px 0;">
-                            <p style="font-size: 1rem; margin-bottom: 8px;"><i class="fa-solid fa-check" style="color: var(--sem-green); margin-right: 8px;"></i> Importe de exposición <strong>conocido</strong> (el 60%).</p>
-                            <p style="font-size: 1rem; margin-bottom: 8px;"><i class="fa-solid fa-check" style="color: var(--sem-green); margin-right: 8px;"></i> Fecha <strong>prevista</strong> (aviso de embarque).</p>
-                            <p style="font-size: 1rem; margin-bottom: 8px;"><i class="fa-solid fa-check" style="color: var(--sem-green); margin-right: 8px;"></i> Divisa contractual <strong>definida</strong> (EUR).</p>
+                        <div style="text-align: center; margin: 15px 0;">
+                            <p style="font-size: 1.05rem; margin-bottom: 8px;">Importe de exposición <strong>conocido</strong> (el 60%).</p>
+                            <p style="font-size: 1.05rem; margin-bottom: 8px;">Fecha <strong>prevista</strong> (aviso de embarque).</p>
+                            <p style="font-size: 1.05rem; margin-bottom: 8px;">Divisa contractual <strong>definida</strong> (EUR).</p>
                         </div>
-                        <div style="background: #ffffff; padding: 15px; border-radius: 8px; font-size: 0.95rem; margin-top: 15px; color: var(--text-body); box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                        <div style="background: #ffffff; padding: 15px; border-radius: 8px; font-size: 0.95rem; margin-top: 15px; color: var(--text-body); box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center;">
                             <strong>Importante:</strong> El forward no se usa para especular, sino para reducir incertidumbre y proteger la capacidad de pago del comprador en origen.
                         </div>
                     </div>
@@ -830,37 +840,37 @@
 
         <!-- SLIDE 15: APLICACIÓN PRÁCTICA FORWARD (Q&A Dynamic Grid RESPUESTAS MAS ABAJO) -->
         <div class="slide" id="s15">
-            <h2 class="slide-title"><i class="fa-solid fa-gears"></i> Aplicación práctica del forward</h2>
+            <h2 class="slide-title"><i class="fa-solid fa-gears" style="color: #007aff;"></i> Aplicación práctica del forward</h2>
             <p style="margin-bottom: 20px;">La cobertura debe alinearse con importe, fecha de pago, divisa y riesgo real de la operación. (Pasa el ratón para revelar)</p>
             <div style="flex: 1; display: flex; align-items: center; justify-content: center;">
                 <div class="qa-grid">
                     <div class="qa-item">
-                        <i class="fa-solid fa-hand-pointer qa-icon"></i>
+                        <i class="fa-solid fa-chevron-down qa-icon"></i>
                         <strong style="color: var(--v-blue); font-size: 1.1rem;">¿Quién contrata?</strong>
                         <div class="answer">El <strong>Importador chileno</strong>, porque paga en EUR pero opera en CLP. Debe cubrir su propio riesgo local.</div>
                     </div>
                     <div class="qa-item">
-                        <i class="fa-solid fa-hand-pointer qa-icon"></i>
+                        <i class="fa-solid fa-chevron-down qa-icon"></i>
                         <strong style="color: var(--v-blue); font-size: 1.1rem;">¿Qué cubre?</strong>
                         <div class="answer">El saldo pendiente del <strong>60%</strong> (o el 100% si busca máxima certidumbre de costes totales).</div>
                     </div>
                     <div class="qa-item">
-                        <i class="fa-solid fa-hand-pointer qa-icon"></i>
+                        <i class="fa-solid fa-chevron-down qa-icon"></i>
                         <strong style="color: var(--v-blue); font-size: 1.1rem;">¿Qué vencimiento?</strong>
                         <div class="answer">Debe sincronizarse con la <strong>fecha prevista del pago final</strong>, justo antes del embarque marítimo.</div>
                     </div>
                     <div class="qa-item">
-                        <i class="fa-solid fa-hand-pointer qa-icon"></i>
+                        <i class="fa-solid fa-chevron-down qa-icon"></i>
                         <strong style="color: var(--v-blue); font-size: 1.1rem;">¿Qué divisas cruza?</strong>
                         <div class="answer">Se establece un contrato para la compra futura de EUR pagando con CLP al tipo fijado hoy.</div>
                     </div>
                     <div class="qa-item" style="border-color: rgba(16,185,129,0.5);">
-                        <i class="fa-solid fa-hand-pointer qa-icon" style="color: var(--sem-green);"></i>
+                        <i class="fa-solid fa-chevron-down qa-icon" style="color: var(--sem-green);"></i>
                         <strong style="color: var(--sem-green); font-size: 1.1rem;">¿Qué riesgo mitiga?</strong>
                         <div class="answer">Exclusivamente la <strong>depreciación del CLP</strong> frente al EUR, evitando que la importación se encarezca.</div>
                     </div>
-                    <div class="qa-item" style="border-color: rgba(239,68,68,0.5);">
-                        <i class="fa-solid fa-hand-pointer qa-icon" style="color: var(--sem-red);"></i>
+                    <div class="qa-item" style="border-color: rgba(239,68,68,0.3);">
+                        <i class="fa-solid fa-chevron-down qa-icon" style="color: var(--sem-red);"></i>
                         <strong style="color: var(--sem-red); font-size: 1.1rem;">¿Qué NO cubre?</strong>
                         <div class="answer">Impagos del cliente por quiebra, retrasos logísticos en origen o problemas comerciales locales.</div>
                     </div>
@@ -868,32 +878,29 @@
             </div>
         </div>
 
-        <!-- SLIDE 16: ALTERNATIVAS (INNOVATIVE GRID ENRIQUECIDO) -->
+        <!-- SLIDE 16: ALTERNATIVAS (INNOVATIVE GRID REORDENADA) -->
         <div class="slide" id="s16">
-            <h2 class="slide-title"><i class="fa-solid fa-compass"></i> Mapa espacial de alternativas</h2>
-            <div class="innovative-grid">
-                <div class="inno-card main">
-                    <div style="font-size: 40px; color: var(--sem-green); margin-bottom: 15px;"><i class="fa-solid fa-shield-check"></i></div>
-                    <h3 style="color: var(--sem-green); font-size: 28px; margin-bottom: 10px;">FORWARD</h3>
-                    <p style="font-size: 16px; font-weight: 500;">Fija coste futuro con exactitud.</p>
-                    <p style="font-size: 14px; margin-top: 15px; opacity: 0.8; max-width: 80%;">La solución elegida por su eficiencia para cubrir un flujo único en una fecha concreta sin pago de primas altas.</p>
-                    <div class="badge badge-green" style="position: absolute; top: 20px; right: 20px;">SELECCIONADO</div>
+            <h2 class="slide-title"><i class="fa-solid fa-compass" style="color: #7000ff;"></i> Mapa espacial de alternativas</h2>
+            <div class="grid-2">
+                <div class="glass-siri glass-card flex-center" style="border-radius: 40px; padding: 40px; background: rgba(16, 185, 129, 0.05); border-color: var(--sem-green);">
+                    <div style="font-size: 60px; color: var(--sem-green); margin-bottom: 20px;"><i class="fa-solid fa-shield-check"></i></div>
+                    <h3 style="font-size: 32px; color: var(--sem-green); margin-bottom: 15px;">FORWARD</h3>
+                    <p style="font-size: 18px; font-weight: 500; text-align: center;">Fija coste futuro con exactitud.</p>
+                    <p style="font-size: 14px; margin-top: 15px; opacity: 0.8; max-width: 80%; text-align: center;">La solución elegida por su eficiencia para cubrir un flujo único en una fecha concreta sin pago de primas altas.</p>
+                    <div class="badge badge-green" style="margin-top: 20px;">SELECCIONADO</div>
                 </div>
-                <div class="inno-card">
-                    <h3 style="color: var(--v-blue); font-size: 18px; margin-bottom: 5px;">Opciones Divisa</h3>
-                    <p style="font-size: 14px; color: var(--text-muted);">Ofrece flexibilidad porque es un derecho, no una obligación. Sin embargo, su <strong>alta prima inamortizable</strong> resulta demasiado cara para esta operación.</p>
-                </div>
-                <div class="inno-card">
-                    <h3 style="color: var(--v-blue); font-size: 18px; margin-bottom: 5px;">Cuenta en Divisa</h3>
-                    <p style="font-size: 14px; color: var(--text-muted);">Útil si hay flujos bidireccionales, pero aquí <strong>no cubre riesgo real</strong>, solo sirve para guardar fondos en destino.</p>
-                </div>
-                <div class="inno-card" style="border-color: rgba(239,68,68,0.3); background: rgba(239,68,68,0.05); grid-column: span 2;">
-                    <div style="display: flex; gap: 15px; align-items: center;">
-                        <i class="fa-solid fa-ban" style="color: var(--sem-red); font-size: 24px;"></i>
-                        <div>
-                            <h3 style="color: var(--sem-red); font-size: 18px; margin-bottom: 2px;">Facturar en CLP</h3>
-                            <p style="font-size: 14px; color: var(--text-muted);">Facilita todo al comprador, pero <strong>pasa todo el riesgo cambiario a la matriz europea GO5</strong>. Estrategia comercialmente inviable.</p>
-                        </div>
+                <div style="display: flex; flex-direction: column; gap: 20px; height: 100%;">
+                    <div class="glass-card tilt-card" style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
+                        <h3 style="color: var(--v-blue); font-size: 18px; margin-bottom: 5px;">Opciones Divisa</h3>
+                        <p style="font-size: 14px; color: var(--text-muted);">Alta prima inamortizable. Demasiado caro para esta operación comercial y reduce margen.</p>
+                    </div>
+                    <div class="glass-card tilt-card" style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
+                        <h3 style="color: var(--v-blue); font-size: 18px; margin-bottom: 5px;">Cuenta en Divisa</h3>
+                        <p style="font-size: 14px; color: var(--text-muted);">No cubre riesgo real, solo sirve para guardar fondos si hay flujos bidireccionales en el mercado.</p>
+                    </div>
+                    <div class="glass-card tilt-card" style="flex: 1; display: flex; flex-direction: column; justify-content: center; border-color: rgba(239,68,68,0.3); background: rgba(239,68,68,0.05);">
+                        <h3 style="color: var(--sem-red); font-size: 18px; margin-bottom: 5px;">Facturar en CLP</h3>
+                        <p style="font-size: 14px; color: var(--text-muted);">Pasa todo el riesgo cambiario a la matriz europea GO5. Estrategia comercialmente inviable.</p>
                     </div>
                 </div>
             </div>
@@ -901,7 +908,7 @@
 
         <!-- SLIDE 17: RIESGOS MITIGADOS (Crystallized Tiles Hover Glow) -->
         <div class="slide" id="s17">
-            <h2 class="slide-title"><i class="fa-solid fa-list-check"></i> Riesgos mitigados por la propuesta</h2>
+            <h2 class="slide-title"><i class="fa-solid fa-list-check" style="color: #00f2fe;"></i> Riesgos mitigados por la propuesta</h2>
             <p style="margin-bottom: 25px;">La propuesta anula los vectores críticos de fallo comercial, de divisa y de ejecución.</p>
             <div class="grid-3">
                 <div class="glass-card glow-blue" style="border-top: 3px solid var(--v-blue);">
@@ -937,9 +944,9 @@
             </div>
         </div>
 
-        <!-- SLIDE 18: DECISIÓN RECOMENDADA FINAL (SIRI GLOW FIJO EN FORWARD) -->
+        <!-- SLIDE 18: DECISIÓN RECOMENDADA FINAL -->
         <div class="slide" id="s18">
-            <h2 class="slide-title"><i class="fa-solid fa-flag-checkered"></i> Decisión recomendada final</h2>
+            <h2 class="slide-title"><i class="fa-solid fa-flag-checkered" style="color: #10b981;"></i> Decisión recomendada final</h2>
             <p style="font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; color: var(--sem-green); text-align: center; margin-bottom: 30px; font-style: italic;">
                 "La estructura protege el cobro sin hacer inviable la compra y convierte el riesgo cambiario en un coste planificable."
             </p>
@@ -964,22 +971,22 @@
                     <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700; margin-bottom: 5px;">Seguridad</div>
                     <strong style="font-size: 1.1rem; color: var(--text-heading);">Penalización demora</strong>
                 </div>
-                <div class="siri-wrapper">
-                    <div class="siri-wrapper-inner flex-center" style="padding: 20px; text-align: center;">
-                        <div style="font-size: 0.85rem; color: var(--text-heading); text-transform: uppercase; font-weight: 800; margin-bottom: 5px;">Cobertura FX</div>
-                        <strong style="font-size: 1.2rem; color: var(--text-heading);">Forward CLP/EUR</strong>
-                    </div>
+                <div class="siri-border-active flex-center" style="padding: 20px; text-align: center;">
+                    <div style="font-size: 0.85rem; color: var(--text-heading); text-transform: uppercase; font-weight: 800; margin-bottom: 5px;">Cobertura FX</div>
+                    <strong style="font-size: 1.2rem;" class="text-siri">Forward CLP/EUR</strong>
                 </div>
             </div>
         </div>
 
         <!-- SLIDE 19: VENTAJAS EXPORTADOR Y COMPRADOR -->
         <div class="slide" id="s19">
-            <h2 class="slide-title"><i class="fa-solid fa-scale-balanced"></i> Ventajas para exportador y comprador</h2>
+            <h2 class="slide-title"><i class="fa-solid fa-scale-balanced" style="color: #007aff;"></i> Ventajas para exportador y comprador</h2>
             <p style="text-align: center; margin-bottom: 30px;">Una buena solución financiera protege al vendedor y facilita la operación al comprador.</p>
             <div class="grid-2">
                 <div class="glass-card glow-blue flex-center" style="padding: 40px;">
-                    <h3 style="color: var(--v-blue); font-size: 1.4rem; justify-content: center; margin-bottom: 25px;"><i class="fa-solid fa-earth-europe"></i> Exportador (GO5)</h3>
+                    <div style="width: 100%; display: flex; justify-content: center; margin-bottom: 25px;">
+                        <h3 style="color: var(--v-blue); font-size: 1.4rem; justify-content: center; margin: 0;"><i class="fa-solid fa-earth-europe"></i> Exportador (GO5)</h3>
+                    </div>
                     <ul class="clean-list" style="font-size: 1.05rem; text-align: left; display: inline-block;">
                         <li>Recibe anticipo, <strong>no libera mercancía sin saldo</strong>.</li>
                         <li>Cobra en EUR y protege al 100% su margen.</li>
@@ -988,7 +995,9 @@
                     </ul>
                 </div>
                 <div class="glass-card glow-green flex-center" style="padding: 40px;">
-                    <h3 style="color: var(--sem-green); font-size: 1.4rem; justify-content: center; margin-bottom: 25px;"><i class="fa-solid fa-earth-americas"></i> Importador (Chile)</h3>
+                    <div style="width: 100%; display: flex; justify-content: center; margin-bottom: 25px;">
+                        <h3 style="color: var(--sem-green); font-size: 1.4rem; justify-content: center; margin: 0;"><i class="fa-solid fa-earth-americas"></i> Importador (Chile)</h3>
+                    </div>
                     <ul class="clean-list" style="font-size: 1.05rem; text-align: left; display: inline-block;">
                         <li><strong>No paga el 100% por adelantado</strong> a ciegas.</li>
                         <li>Cuenta con hitos atados al avance real de logística.</li>
@@ -999,30 +1008,38 @@
             </div>
         </div>
 
-        <!-- SLIDE 20: CONCLUSIÓN COMERCIAL (PLANETA Y NEON PILLS) -->
+        <!-- SLIDE 20: CONCLUSIÓN COMERCIAL (REDISENO PLANETA FLAT Y TEXTOS PEQUEÑOS) -->
         <div class="slide" id="s20">
             <div class="flex-col" style="align-items: center; justify-content: center; text-align: center;">
                 <div style="display: flex; gap: 40px; margin-bottom: 40px; width: 100%; justify-content: center;">
-                    <div class="glass-pill"><span class="glow-text-1">S</span>egurida<span class="glow-text-2">d</span> de c<span class="glow-text-3">o</span>bro</div>
-                    <div class="glass-pill">Previ<span class="glow-text-3">s</span>ibilidad fina<span class="glow-text-1">n</span>ciera</div>
-                    <div class="glass-pill">Via<span class="glow-text-1">b</span>ilidad c<span class="glow-text-2">o</span>merci<span class="glow-text-3">a</span>l</div>
+                    <div class="glass-pill-transparent">
+                        <span class="mc-1">S</span>eguridad de cobro <i class="fa-solid fa-shield-halved" style="color: var(--v-cyan); filter: drop-shadow(0 0 5px var(--v-cyan)); margin-left: 10px;"></i>
+                    </div>
+                    <div class="glass-pill-transparent">
+                        Previsibilidad fina<span class="mc-2">n</span>ciera <i class="fa-solid fa-chart-line" style="color: var(--v-magenta); filter: drop-shadow(0 0 5px var(--v-magenta)); margin-left: 10px;"></i>
+                    </div>
+                    <div class="glass-pill-transparent">
+                        Via<span class="mc-3">b</span>ilidad comercial <i class="fa-solid fa-handshake" style="color: var(--sem-green); filter: drop-shadow(0 0 5px var(--sem-green)); margin-left: 10px;"></i>
+                    </div>
                 </div>
                 
-                <p style="font-size: 1.25rem; max-width: 850px; margin-bottom: 60px; color: var(--text-muted);">
+                <p style="font-size: 1.25rem; max-width: 850px; margin-bottom: 60px; color: var(--text-body);">
                     <strong>El Proyecto de internacionalización es viable</strong> porque la venta se cobra en plazo, el margen industrial se asegura en EUR y el riesgo cambiario se gestiona profesionalmente en destino.
                 </p>
                 
-                <!-- O en GO5 es el Planeta Tierra y un anillo -->
-                <div class="siri-wrapper" style="border-radius: 100px; padding: 3px;">
-                    <div style="background: rgba(255,255,255,0.7); backdrop-filter: blur(20px); border-radius: 100px; padding: 15px 50px; display: flex; align-items: center; gap: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-                        <span style="font-family: var(--font-display); font-size: 2.5rem; font-weight: 800; color: var(--text-heading);">G</span>
-                        <div style="position: relative; width: 45px; height: 45px; display: flex; justify-content: center; align-items: center;">
-                            <i class="fa-solid fa-earth-americas" style="font-size: 32px; color: var(--text-heading); z-index: 2;"></i>
-                            <svg style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 3;" viewBox="0 0 100 100">
-                                <ellipse cx="50" cy="50" rx="42" ry="12" fill="none" stroke="var(--text-heading)" stroke-width="4" transform="rotate(-20 50 50)" />
-                            </svg>
+                <!-- G - O (Planeta plano) - 5 -->
+                <div class="siri-border-active" style="border-radius: 100px; padding: 4px;">
+                    <div style="background: rgba(255,255,255,0.7); backdrop-filter: blur(20px); border-radius: 100px; padding: 15px 50px; display: flex; align-items: center; justify-content: center; box-shadow: inset 0 1px 0 rgba(255,255,255,0.5);">
+                        <div style="display: flex; align-items: center; gap: 5px;">
+                            <span style="font-family: var(--font-display); font-size: 3rem; font-weight: 800; color: var(--text-muted);">G</span>
+                            <div style="position: relative; width: 45px; height: 45px; display: flex; justify-content: center; align-items: center;">
+                                <i class="fa-solid fa-earth-americas" style="font-size: 32px; color: var(--text-muted); z-index: 2;"></i>
+                                <svg style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 3;" viewBox="0 0 100 100">
+                                    <ellipse cx="50" cy="50" rx="42" ry="12" fill="none" stroke="var(--text-muted)" stroke-width="4" transform="rotate(-20 50 50)" />
+                                </svg>
+                            </div>
+                            <span style="font-family: var(--font-display); font-size: 3rem; font-weight: 800; color: var(--text-muted);">5</span>
                         </div>
-                        <span style="font-family: var(--font-display); font-size: 2.5rem; font-weight: 800; color: var(--text-heading);">5</span>
                     </div>
                 </div>
             </div>
@@ -1076,6 +1093,28 @@
         document.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowRight') nextSlide();
             if (e.key === 'ArrowLeft') prevSlide();
+        });
+        
+        // Tilt Effect for Slide 16 Cards
+        const tiltCards = document.querySelectorAll('.tilt-card');
+        tiltCards.forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = ((y - centerY) / centerY) * -10; // Max 10deg
+                const rotateY = ((x - centerX) / centerX) * 10;
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+                card.style.boxShadow = `0 20px 40px rgba(0,0,0,0.1)`;
+                card.style.zIndex = `10`;
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+                card.style.boxShadow = `none`;
+                card.style.zIndex = `1`;
+            });
         });
 
         // Init
